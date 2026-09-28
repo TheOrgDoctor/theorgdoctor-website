@@ -122,23 +122,28 @@ export const team = [
     title: "Founder & CEO",
     bio: "Dr. Patrick Henley brings over two decades of strategic human resources leadership, organizational development, and risk management expertise to the firm. With a deep passion for helping organizations align people with purpose, Patrick is known for blending humor and heart with data-driven decision-making — earning him the nickname \"Chief HR Nerd.\"\n\nPatrick has served as Chief Human Resources Officer at a large regional utility, where he led award-winning programs in leadership development, talent strategy, and workforce planning. He has also been recognized as a finalist for multiple HR Excellence Awards and nominated for CHRO of the Year. As an adjunct professor of business and HR at the college level for over a decade, he brings a unique educator's lens to his consulting work.\n\nHe holds a Doctorate in Business Administration, an MBA, and a Bachelor's degree in Psychology, and is certified at the highest levels of the profession with both SPHR and SHRM-SCP credentials.",
   },
+];
+
+export const teamExpertise = [
   {
-    name: "Celeste M. Stephens",
-    credentials: "MBA, SHRM-CP, Certified Mediator",
-    title: "HR Consultant, Principal Trainer & Strategic Advisor",
-    bio: "Celeste Stephens brings 8+ years of progressive experience in human resources, organizational development, business communications, and workforce training, with particular strength in public relations, regulatory compliance, employee relations, and communications strategy. She currently serves as HR & Communications Business Partner and primary Training Officer for the Cobb County–Marietta Water Authority, a Georgia public authority, where she designs and delivers leadership development, crisis communications, and compliance training programs. She holds an MBA in Human Resource Leadership from Clayton State University, a Bachelor of Science in Public Relations from Florida A&M University, is a SHRM Certified Professional, and is a Georgia-certified General Civil Mediator. She is currently a Doctor of Business Administration candidate at Florida Institute of Technology.",
+    area: "Communications & Public Relations",
+    detail:
+      "Crisis communications, regulatory compliance, and employer branding, backed by public relations and communications leadership experience.",
   },
   {
-    name: "Heather Henley",
-    credentials: "",
-    title: "Senior Organizational Consultant and Business Manager",
-    bio: "Heather Henley brings more than 20 years of experience in higher education administration and human resources. She currently serves as Director of Faculty HR Affairs at Georgia State University, where she previously served as a college HR Officer leading high-volume HR operations, managing complex employee relations matters, and serving as a strategic advisor to deans and executive leadership. Her expertise spans recruitment, performance management, compensation planning, and talent development. Heather holds a Bachelor of Arts from Georgia State University and is known for a calm, solutions-oriented approach and deep attention to process improvement, compliance, and workplace culture.",
+    area: "Higher Education & Public Sector HR",
+    detail:
+      "High-volume HR operations, employee relations, and strategic advisory experience across universities and public authorities.",
   },
   {
-    name: "Heidi White",
-    credentials: "",
-    title: "Senior Organizational Consultant and Project Manager",
-    bio: "Heidi White is a seasoned HR professional with 15+ years of experience leading human resources operations across government, healthcare, logistics, and higher education. She specializes in translating organizational strategy into clear, actionable solutions that improve culture, systems, and staff performance, with particular strength in employee relations, talent acquisition, training and development, policy development, and organizational compliance. Heidi holds an applied science degree in Human Resources and is known for a practical, collaborative approach to change management and process improvement.",
+    area: "Mediation & Employee Relations",
+    detail:
+      "Formal workplace mediation, investigations, and conflict resolution from Georgia-certified mediators and employee relations specialists.",
+  },
+  {
+    area: "Talent, Training & Organizational Development",
+    detail:
+      "Recruitment, performance management, compensation planning, and training program design across government, healthcare, logistics, and higher education.",
   },
 ];
 

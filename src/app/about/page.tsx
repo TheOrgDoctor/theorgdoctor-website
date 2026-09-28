@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Container } from "@/components/Container";
-import { team } from "@/lib/site-data";
+import { team, teamExpertise } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "About",
@@ -104,6 +104,38 @@ export default function AboutPage() {
                 <div className="mt-4 space-y-3 text-sm leading-relaxed text-brand-gray whitespace-pre-line">
                   {member.bio}
                 </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Broader team expertise */}
+      <section className="py-16 sm:py-20">
+        <Container>
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="font-display text-3xl font-bold text-brand-green sm:text-4xl">
+              Backed by a Team of Experts
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-brand-gray">
+              Patrick draws on a diverse team of HR and organizational
+              development consultants across public and private sector
+              backgrounds, bringing additional depth to every engagement.
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {teamExpertise.map((item) => (
+              <div
+                key={item.area}
+                className="rounded-2xl border border-black/10 bg-white p-6"
+              >
+                <h3 className="font-display text-base font-bold text-brand-green">
+                  {item.area}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-brand-gray">
+                  {item.detail}
+                </p>
               </div>
             ))}
           </div>
