@@ -54,12 +54,13 @@ export default function DiagnosticPage() {
               Built for Organizations Too Complex for Fractional HR
             </h2>
             <p className="mt-5 text-base leading-relaxed text-brand-gray">
-              The Assessment is built for water and wastewater utilities,
-              public agencies, and mid-market employers — typically 150 to
-              2,500 employees — who are too complex for a fractional HR
-              consultant, too budget-constrained for a national transformation
-              firm, and underserved by vendors who sell consulting as a front
-              end to software.
+              The Assessment is built for small to medium-market employers,
+              public sector organizations, and critical infrastructure
+              utilities — water, wastewater, gas, and electric — typically
+              150 to 2,500 employees. These are organizations too complex for
+              a fractional HR consultant, too budget-constrained for a
+              national transformation firm, and underserved by vendors who
+              sell consulting as a front end to software.
             </p>
           </Reveal>
         </Container>

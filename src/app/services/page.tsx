@@ -15,7 +15,7 @@ import {
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Independent HR and organizational transformation advisory for utilities, public agencies, and mid-market employers — from keynotes to a flagship diagnostic to retained advisory.",
+    "Independent HR and organizational transformation advisory for small to medium-market employers, the public sector, and critical infrastructure utilities — from keynotes to a flagship diagnostic to retained advisory.",
 };
 
 export default function ServicesPage() {

@@ -12,7 +12,8 @@ import {
 
 const credibilityPoints = [
   "Public-sector and utility CHRO-level experience — operational credibility built from having run HR inside an organization like the ones we advise, not just around them.",
-  "Doctoral research in organizational and talent strategy, with a dissertation focused on the water and utility sector specifically.",
+  "Doctoral research in organizational and talent strategy, with a dissertation focused on critical infrastructure and utility organizations.",
+  "Hands-on experience leading organizational assessments, business process improvement, and structure redesign — plus RFP development and proposal evaluation, so we know what a strong engagement looks like from both sides of the table.",
   "A standing platform at AWWA and SHRM national conferences, keeping our thinking current with what utility and public-sector leaders are actually facing.",
   "A background in teaching HR, employment law, and management at the college level, which shapes how we transfer capability to your team instead of creating dependency on ours.",
 ];
@@ -175,10 +176,12 @@ export default function AboutPage() {
           </Reveal>
 
           <RevealGroup className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2" stagger={0.1}>
-            {teamExpertise.map((item) => (
+            {teamExpertise.map((item, i) => (
               <RevealItem
                 key={item.area}
-                className="card-lift rounded-2xl border border-black/10 bg-white p-6"
+                className={`card-lift rounded-2xl border border-black/10 bg-white p-6 ${
+                  i === 0 ? "sm:col-span-2 sm:bg-brand-green/[0.03]" : ""
+                }`}
               >
                 <h3 className="font-display text-base font-bold text-brand-green">
                   {item.area}

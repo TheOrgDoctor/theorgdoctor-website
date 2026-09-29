@@ -20,9 +20,9 @@ export const nav = [
 
 export const positioning = {
   statement:
-    "Independent HR and organizational transformation advisory for water and wastewater utilities, public agencies, and mid-market employers — bringing enterprise-caliber strategy to organizations too complex for fractional HR and underserved by the large consulting firms.",
+    "Independent HR and organizational transformation advisory for small to medium-market employers, the public sector, and critical infrastructure utilities — bringing enterprise-caliber strategy to organizations too complex for fractional HR and underserved by the large consulting firms.",
   shortStatement:
-    "Independent HR and organizational transformation advisory for utilities, public agencies, and mid-market employers.",
+    "Independent HR and organizational transformation advisory for small to medium-market employers, the public sector, and critical infrastructure utilities.",
 };
 
 export const independenceStatement =
@@ -205,6 +205,11 @@ export const team = [
 ];
 
 export const teamExpertise = [
+  {
+    area: "Strategy, Process & Organizational Efficiency",
+    detail:
+      "Strategic planning facilitation, business process improvement, and organizational structure design that turn assessment findings into measurable efficiency gains — plus RFP development and proposal evaluation for organizations procuring outside support.",
+  },
   {
     area: "Communications & Public Relations",
     detail:
