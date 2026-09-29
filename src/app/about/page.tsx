@@ -1,7 +1,19 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Container } from "@/components/Container";
-import { team, teamExpertise } from "@/lib/site-data";
+import {
+  team,
+  teamExpertise,
+  positioning,
+  independenceStatement,
+} from "@/lib/site-data";
+
+const credibilityPoints = [
+  "Public-sector and utility CHRO-level experience — operational credibility built from having run HR inside an organization like the ones we advise, not just around them.",
+  "Doctoral research in organizational and talent strategy, with a dissertation focused on the water and utility sector specifically.",
+  "A standing platform at AWWA and SHRM national conferences, keeping our thinking current with what utility and public-sector leaders are actually facing.",
+  "A background in teaching HR, employment law, and management at the college level, which shapes how we transfer capability to your team instead of creating dependency on ours.",
+];
 
 export const metadata: Metadata = {
   title: "About",
@@ -33,31 +45,53 @@ export default function AboutPage() {
       <section className="py-16 sm:py-20">
         <Container>
           <div className="mx-auto max-w-3xl space-y-5 text-base leading-relaxed text-brand-gray">
-            <p>
-              At The Org Doctor, we specialize in diagnosing organizational
-              challenges and prescribing strategic, people-centered solutions.
-              As a full-service consulting firm, we partner with organizations
-              of all sizes — public and private — across diverse industries to
-              optimize human resources, leadership development, business
-              processes, and overall organizational effectiveness.
+            <p className="font-display text-xl font-semibold text-brand-green">
+              {positioning.statement}
             </p>
             <p>
-              Our award-winning team combines decades of experience in human
-              resources, business strategy, leadership development, and risk
-              management. We are passionate about helping clients build
-              resilient, high-performing workplaces through innovative
-              strategies and actionable solutions. From HR audits and
-              leadership coaching to change management and operational
-              improvements, we deliver measurable results that align your
-              people, processes, and goals.
+              We work with organizations that are too complex for a
+              fractional HR consultant and underserved by national
+              transformation firms sized for global enterprises. Our method —
+              assess, diagnose, prescribe, treat, and build self-sufficiency —
+              is built to leave your team more capable, not more dependent.
             </p>
             <p>
               Our consultants are not just advisors; they are educators and
               industry thought leaders who regularly present at national
               conferences and bring real-world expertise to every engagement.
-              At The Org Doctor, we believe that every organization — whether
-              navigating growth, transformation, or daily operations —
-              deserves a clear, strategic path forward.
+              At The Org Doctor, we believe that every organization —
+              whether navigating growth, transformation, or daily operations
+              — deserves a clear, strategic path forward.
+            </p>
+          </div>
+
+          {/* Why we're credible here */}
+          <div className="mx-auto mt-14 max-w-3xl">
+            <h2 className="text-center font-display text-2xl font-bold text-brand-green">
+              Why We&apos;re Credible Here
+            </h2>
+            <ul className="mt-8 space-y-4">
+              {credibilityPoints.map((point) => (
+                <li
+                  key={point}
+                  className="flex gap-3 rounded-xl border border-black/10 bg-white p-5"
+                >
+                  <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-brand-orange" />
+                  <span className="text-sm leading-relaxed text-brand-gray">
+                    {point}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Independence statement */}
+          <div className="mx-auto mt-10 max-w-3xl rounded-2xl bg-brand-green px-8 py-8 text-center">
+            <p className="font-display text-base font-semibold text-white">
+              We work for you — no one else.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-white/80">
+              {independenceStatement}
             </p>
           </div>
 

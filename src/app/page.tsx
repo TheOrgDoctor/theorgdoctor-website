@@ -1,7 +1,8 @@
+import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { Accordion } from "@/components/Accordion";
-import { benefits, site } from "@/lib/site-data";
+import { benefits, serviceTiers, positioning, site } from "@/lib/site-data";
 
 export default function Home() {
   return (
@@ -13,23 +14,19 @@ export default function Home() {
             {site.tagline}
           </p>
           <h1 className="max-w-3xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
-            Diagnosing What&apos;s Holding Your Organization Back — and
-            Prescribing What Fixes It
+            {positioning.statement}
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
-            At The Org Doctor, we diagnose what&apos;s holding your organization
-            back and prescribe the strategic solutions that move it forward.
-            Led by a powerhouse team of seasoned HR professionals, we blend
-            decades of experience in human resources, organizational strategy,
-            and leadership development to help companies align their people,
-            processes, and performance.
+            We diagnose what&apos;s holding your organization back and
+            prescribe the strategic solutions that move it forward — starting
+            with a fixed-fee diagnostic, not an open-ended engagement.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <Button href={site.bookingUrl} external variant="primary">
-              Book a Free Consultation →
+            <Button href="/diagnostic" variant="primary">
+              See the Organizational Health Assessment →
             </Button>
-            <Button href="/services" variant="ghost" className="!border-white !text-white hover:!bg-white hover:!text-brand-green">
-              Explore Our Services →
+            <Button href={site.bookingUrl} external variant="ghost" className="!border-white !text-white hover:!bg-white hover:!text-brand-green">
+              Book a Discovery Call →
             </Button>
           </div>
         </Container>
@@ -59,6 +56,47 @@ export default function Home() {
             <p className="mt-1 text-sm text-brand-gray">
               Credentialed at the highest levels of the profession
             </p>
+          </div>
+        </Container>
+      </section>
+
+      {/* Tier ladder teaser */}
+      <section className="bg-white py-20">
+        <Container>
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="font-display text-3xl font-bold text-brand-green sm:text-4xl">
+              An Engagement Model, Not a Menu
+            </h2>
+            <p className="mt-3 text-brand-gray">
+              Most relationships start with the Assessment and move as far as
+              your organization needs.
+            </p>
+          </div>
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {serviceTiers.map((t) => (
+              <div
+                key={t.tier}
+                className="rounded-2xl border border-black/10 p-6"
+              >
+                <span className="font-display text-2xl font-bold text-brand-orange/40">
+                  {t.tier}
+                </span>
+                <h3 className="mt-2 font-display text-base font-bold text-brand-green">
+                  {t.name}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-brand-gray">
+                  {t.description}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Link
+              href="/services"
+              className="text-sm font-semibold text-brand-orange hover:text-brand-orange-dark"
+            >
+              See the full engagement model →
+            </Link>
           </div>
         </Container>
       </section>

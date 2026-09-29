@@ -11,10 +11,165 @@ export const site = {
 export const nav = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
+  { label: "Diagnostic", href: "/diagnostic" },
   { label: "About", href: "/about" },
   { label: "FAQs", href: "/faqs" },
   { label: "Insights", href: "/insights" },
   { label: "Contact", href: "/contact" },
+];
+
+export const positioning = {
+  statement:
+    "Independent HR and organizational transformation advisory for water and wastewater utilities, public agencies, and mid-market employers — bringing enterprise-caliber strategy to organizations too complex for fractional HR and underserved by the large consulting firms.",
+  shortStatement:
+    "Independent HR and organizational transformation advisory for utilities, public agencies, and mid-market employers.",
+};
+
+export const independenceStatement =
+  "The Org Doctor earns no referral fees or commissions from HRIS, benefits, or staffing vendors. Our recommendations are shaped by what works for your organization — not by who pays us.";
+
+export const serviceTiers = [
+  {
+    tier: "01",
+    name: "Speaking & Workshops",
+    role: "Awareness & credibility",
+    description:
+      "Keynotes and workshops for leadership teams, HR functions, and conferences — including the SOW → WATER → REAP leadership framework and Ready Enough promotion-readiness program.",
+    pricing: "Per event or per cohort",
+  },
+  {
+    tier: "02",
+    name: "The Organizational Health Assessment",
+    role: "Flagship diagnostic",
+    description:
+      "A fixed-scope, fixed-fee diagnostic of your HR operating model, process maturity, and workforce risk, delivered as a prioritized, board-ready roadmap. This is the core engagement — everything else builds from it.",
+    pricing: "Fixed fee · 6–10 weeks",
+    href: "/diagnostic",
+  },
+  {
+    tier: "03",
+    name: "Transformation Advisory",
+    role: "Where the work happens",
+    description:
+      "Operating model redesign, process redesign, workforce and succession planning, and HR-technology readiness — scoped in phases against the priorities the Assessment identifies.",
+    pricing: "Fixed-fee phases or monthly advisory",
+  },
+  {
+    tier: "04",
+    name: "Retained Advisory",
+    role: "Ongoing counsel",
+    description:
+      "Quarterly advisory to your GM, CEO, or board on transformation governance and implementation oversight, for organizations continuing the work beyond the initial engagement.",
+    pricing: "Monthly retainer",
+  },
+];
+
+export const transformationFocusAreas = [
+  {
+    icon: "🧭",
+    title: "Strategic HR & Workforce Planning",
+    subtitle: "Strengthening your human capital foundation",
+    items: [
+      "Talent and organizational strategy, workforce planning",
+      "HR compliance audits and risk assessments",
+      "Employee relations support and workplace investigations",
+      "Policy creation, handbook development, and documentation reviews",
+      "HR operating model design",
+    ],
+  },
+  {
+    icon: "🌱",
+    title: "Leadership & Organizational Development",
+    subtitle: "Equipping your people to lead with confidence",
+    items: [
+      "Leadership training for supervisors, managers, and executives",
+      "Executive coaching and 1:1 development plans",
+      "Succession planning and talent pipeline development",
+      "Performance management system design",
+      "Change management facilitation",
+    ],
+  },
+  {
+    icon: "📊",
+    title: "Business & Process Optimization",
+    subtitle: "Helping you work smarter, not harder",
+    items: [
+      "Organizational assessments and process improvement",
+      "Strategic planning sessions and facilitation",
+      "Departmental structure and staffing analysis",
+      "Business continuity and succession planning",
+      "Cross-functional collaboration and alignment initiatives",
+    ],
+  },
+  {
+    icon: "🎓",
+    title: "Training & Workforce Development",
+    subtitle: "Building skills for today and tomorrow",
+    items: [
+      "Custom employee training programs (in-person or virtual)",
+      "Onboarding and orientation redesign",
+      "Career pathing and internal mobility strategy",
+      "Mentoring program development and facilitation",
+    ],
+  },
+  {
+    icon: "⚖️",
+    title: "Compliance, Safety & Risk Management",
+    subtitle: "Keeping your workplace protected and prepared",
+    items: [
+      "Safety program audits and policy development",
+      "Emergency preparedness and crisis communication plans",
+      "Risk mitigation strategy for HR, safety, and operations",
+      "Investigative services and corrective action guidance",
+    ],
+  },
+  {
+    icon: "📣",
+    title: "Communications & Engagement Strategy",
+    subtitle: "Connecting your people to your purpose",
+    items: [
+      "Internal communications planning and execution",
+      "Employer branding and organizational storytelling",
+      "Engagement surveys and action plan design",
+      "Change communication strategy",
+    ],
+  },
+];
+
+export const diagnosticMethod = [
+  {
+    step: "Assess",
+    description:
+      "We review your HR operating model, workforce data, process maturity, and technology fit against your organization's actual risk profile — retirements, succession gaps, licensure pipelines, and compliance exposure.",
+  },
+  {
+    step: "Diagnose",
+    description:
+      "Findings are synthesized into a clear picture of what's working, what's at risk, and what's costing you the most in time, money, or exposure — no jargon, no filler.",
+  },
+  {
+    step: "Prescribe",
+    description:
+      "You receive a prioritized, board-ready roadmap: what to fix first, what can wait, and what to stop doing entirely — with a business case built for the people who control the budget.",
+  },
+  {
+    step: "Treat",
+    description:
+      "If you choose to move into Transformation Advisory, the roadmap becomes the scope — phased, fixed-fee, and built around your team's actual capacity to absorb change.",
+  },
+  {
+    step: "Build Self-Sufficiency",
+    description:
+      "Every engagement is built to transfer capability to your team, not create dependency on ours. The goal is an organization that doesn't need us back next year for the same problem.",
+  },
+];
+
+export const diagnosticDeliverables = [
+  "A prioritized roadmap ranking initiatives by risk, cost, and organizational readiness",
+  "A board- and executive-ready business case connecting HR priorities to budget, risk, and continuity of service",
+  "An HR operating model assessment with clear ownership and governance recommendations",
+  "A workforce risk profile covering succession, retirements, and licensure or credentialing pipelines",
+  "An HR-technology readiness assessment (vendor-neutral — process and requirements, not a product recommendation)",
 ];
 
 export const benefits = [
@@ -37,81 +192,6 @@ export const benefits = [
   {
     title: "Faster, Smarter Decisions Through HR Data & Insights",
     body: "A data-informed approach to workforce planning, compensation, and performance strategy.",
-  },
-];
-
-export const services = [
-  {
-    icon: "🧭",
-    title: "Strategic HR & Workforce Solutions",
-    subtitle: "Strengthening your human capital foundation",
-    items: [
-      "Talent acquisition strategy and workforce planning",
-      "HR compliance audits and risk assessments",
-      "Employee relations support and workplace investigations",
-      "Policy creation, handbook development, and documentation reviews",
-      "HR function design and operational consulting",
-    ],
-  },
-  {
-    icon: "🌱",
-    title: "Leadership & Organizational Development",
-    subtitle: "Equipping your people to lead with confidence",
-    items: [
-      "Leadership training for supervisors, managers, and executives",
-      "Executive coaching and 1:1 development plans",
-      "Succession planning and talent pipeline development",
-      "Performance management system design and feedback coaching",
-      "Change management facilitation for evolving teams and structures",
-    ],
-  },
-  {
-    icon: "📊",
-    title: "Business Optimization & Strategy",
-    subtitle: "Helping you work smarter, not harder",
-    items: [
-      "Organizational assessments and process improvement",
-      "Strategic planning sessions and facilitation",
-      "Departmental structure and staffing analysis",
-      "Business continuity and succession planning",
-      "Cross-functional collaboration and alignment initiatives",
-    ],
-  },
-  {
-    icon: "🎓",
-    title: "Training & Workforce Development",
-    subtitle: "Building skills for today and tomorrow",
-    items: [
-      "Custom employee training programs (in-person or virtual)",
-      "Onboarding and orientation redesign",
-      "Career pathing and internal mobility strategy",
-      "Mentoring program development and facilitation",
-      "Team retreats, workshops, and learning experiences",
-    ],
-  },
-  {
-    icon: "⚖️",
-    title: "Compliance, Safety & Risk Management",
-    subtitle: "Keeping your workplace protected and prepared",
-    items: [
-      "Safety program audits and policy development",
-      "Emergency preparedness and crisis communication plans",
-      "Risk mitigation strategy for HR, safety, and operations",
-      "Drug-free workplace and compliance program support",
-      "Investigative services and corrective action guidance",
-    ],
-  },
-  {
-    icon: "📣",
-    title: "Communications & Engagement Strategy",
-    subtitle: "Connecting your people to your purpose",
-    items: [
-      "Internal communications planning and execution",
-      "Employer branding and organizational storytelling",
-      "Engagement surveys and action plan design",
-      "Leadership messaging and communication coaching",
-      "Change communication strategy",
-    ],
   },
 ];
 

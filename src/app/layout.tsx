@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { site } from "@/lib/site-data";
+import { site, positioning } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.domain),
@@ -10,15 +10,13 @@ export const metadata: Metadata = {
     default: `${site.name} | ${site.tagline}`,
     template: `%s | ${site.name}`,
   },
-  description:
-    "The Org Doctor diagnoses what's holding your organization back and prescribes strategic HR, leadership, and organizational solutions that move it forward.",
+  description: positioning.shortStatement,
   icons: {
     icon: "/images/logo-circular.png",
   },
   openGraph: {
     title: `${site.name} | ${site.tagline}`,
-    description:
-      "Strategic HR consulting, leadership development, and organizational solutions for public and private sector clients.",
+    description: positioning.shortStatement,
     url: site.domain,
     siteName: site.name,
     images: ["/images/logo-primary.png"],

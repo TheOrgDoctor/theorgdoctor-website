@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
-import { services, site } from "@/lib/site-data";
+import {
+  serviceTiers,
+  transformationFocusAreas,
+  independenceStatement,
+  positioning,
+  site,
+} from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Strategic HR, leadership development, business optimization, training, compliance, and communications consulting from The Org Doctor.",
+    "Independent HR and organizational transformation advisory for utilities, public agencies, and mid-market employers — from keynotes to a flagship diagnostic to retained advisory.",
 };
 
 export default function ServicesPage() {
@@ -15,56 +22,103 @@ export default function ServicesPage() {
       <section className="bg-brand-green py-16 sm:py-20">
         <Container className="text-center">
           <h1 className="font-display text-4xl font-bold text-white sm:text-5xl">
-            Our Services
+            How We Work With You
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
-            We take a hands-on, people-first approach. Whether you&apos;re
-            navigating growth, preparing for change, or ready to optimize how
-            your team works, we deliver practical, customized support that
-            fits your organization.
+            {positioning.statement}
           </p>
-          <ul className="mx-auto mt-6 flex max-w-xl flex-col gap-2 text-sm text-white/75 sm:flex-row sm:justify-center sm:gap-6">
-            <li>Available for projects, workshops, or ongoing partnerships</li>
-            <li>Virtual and on-site options</li>
-            <li>Flexible pricing and scope</li>
-          </ul>
           <Button href={site.bookingUrl} external variant="primary" className="mt-8">
             Book Now →
           </Button>
         </Container>
       </section>
 
+      {/* Tier ladder */}
       <section className="py-20">
         <Container>
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="font-display text-3xl font-bold text-brand-green sm:text-4xl">
-              Explore How We Can Help
+              An Engagement Model, Not a Menu
             </h2>
             <p className="mt-3 text-brand-gray">
-              At The Org Doctor, we help organizations align people, process,
-              and purpose.
+              Each tier builds on the one before it. Most relationships start
+              at the top and move down as far as your organization needs.
+            </p>
+          </div>
+
+          <div className="mt-12 space-y-6">
+            {serviceTiers.map((t) => (
+              <div
+                key={t.tier}
+                className="flex flex-col gap-4 rounded-2xl border border-black/10 bg-white p-6 sm:flex-row sm:items-start sm:gap-8 sm:p-8"
+              >
+                <div className="shrink-0">
+                  <span className="font-display text-3xl font-bold text-brand-orange/40">
+                    {t.tier}
+                  </span>
+                </div>
+                <div className="flex-1">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-brand-orange">
+                    {t.role}
+                  </p>
+                  <h3 className="mt-1 font-display text-xl font-bold text-brand-green">
+                    {t.name}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-brand-gray">
+                    {t.description}
+                  </p>
+                  <div className="mt-4 flex flex-wrap items-center gap-4">
+                    <span className="text-xs font-semibold uppercase tracking-wide text-brand-gray/60">
+                      {t.pricing}
+                    </span>
+                    {t.href && (
+                      <Link
+                        href={t.href}
+                        className="text-sm font-semibold text-brand-orange hover:text-brand-orange-dark"
+                      >
+                        Learn more about the Assessment →
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Transformation Advisory focus areas */}
+      <section className="bg-white py-20">
+        <Container>
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="font-display text-3xl font-bold text-brand-green sm:text-4xl">
+              Inside Transformation Advisory
+            </h2>
+            <p className="mt-3 text-brand-gray">
+              Once the Assessment identifies your priorities, work is scoped
+              from the areas below — sequenced, not sold as a package deal.
             </p>
           </div>
 
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
-            {services.map((service) => (
+            {transformationFocusAreas.map((area) => (
               <div
-                key={service.title}
-                className="rounded-2xl border border-black/10 bg-white p-6 sm:p-8"
+                key={area.title}
+                className="rounded-2xl border border-black/10 p-6 sm:p-8"
               >
                 <div className="flex items-start gap-4">
-                  <span className="text-3xl">{service.icon}</span>
+                  <span className="text-3xl">{area.icon}</span>
                   <div>
                     <h3 className="font-display text-lg font-bold text-brand-green">
-                      {service.title}
+                      {area.title}
                     </h3>
                     <p className="mt-1 text-sm font-medium italic text-brand-orange">
-                      {service.subtitle}
+                      {area.subtitle}
                     </p>
                   </div>
                 </div>
                 <ul className="mt-4 space-y-2">
-                  {service.items.map((item) => (
+                  {area.items.map((item) => (
                     <li key={item} className="flex gap-2 text-sm text-brand-gray">
                       <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-orange" />
                       {item}
@@ -74,15 +128,25 @@ export default function ServicesPage() {
               </div>
             ))}
           </div>
+        </Container>
+      </section>
 
-          <div className="mx-auto mt-14 max-w-xl rounded-2xl bg-brand-green px-8 py-10 text-center">
+      {/* Independence statement */}
+      <section className="py-20">
+        <Container>
+          <div className="mx-auto max-w-2xl rounded-2xl bg-brand-green px-8 py-10 text-center">
             <p className="font-display text-lg font-semibold text-white">
-              Not sure which service fits?
+              We work for you — no one else.
             </p>
-            <p className="mt-2 text-sm text-white/80">
-              Book a free discovery call and we&apos;ll help you figure it out.
+            <p className="mt-3 text-sm leading-relaxed text-white/80">
+              {independenceStatement}
             </p>
-            <Button href={site.bookingUrl} external variant="primary" className="mt-6">
+            <Button
+              href={site.bookingUrl}
+              external
+              variant="primary"
+              className="mt-6"
+            >
               Book a Free Discovery Call →
             </Button>
           </div>
