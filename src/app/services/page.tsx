@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
+import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
+import { GradientField } from "@/components/GradientField";
 import {
   serviceTiers,
   transformationFocusAreas,
@@ -19,24 +21,31 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <section className="bg-brand-green py-16 sm:py-20">
-        <Container className="text-center">
-          <h1 className="font-display text-4xl font-bold text-white sm:text-5xl">
-            How We Work With You
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
-            {positioning.statement}
-          </p>
-          <Button href={site.bookingUrl} external variant="primary" className="mt-8">
-            Book Now →
-          </Button>
+      <section className="relative overflow-hidden bg-brand-green py-16 sm:py-20">
+        <GradientField variant="green" />
+        <Container className="relative text-center">
+          <Reveal>
+            <h1 className="font-display text-4xl font-bold text-white sm:text-5xl">
+              How We Work With You
+            </h1>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
+              {positioning.statement}
+            </p>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <Button href={site.bookingUrl} external variant="primary" className="mt-8">
+              Book Now →
+            </Button>
+          </Reveal>
         </Container>
       </section>
 
       {/* Tier ladder */}
       <section className="py-20">
         <Container>
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="font-display text-3xl font-bold text-brand-green sm:text-4xl">
               An Engagement Model, Not a Menu
             </h2>
@@ -44,13 +53,13 @@ export default function ServicesPage() {
               Each tier builds on the one before it. Most relationships start
               at the top and move down as far as your organization needs.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="mt-12 space-y-6">
+          <RevealGroup className="mt-12 space-y-6" stagger={0.12}>
             {serviceTiers.map((t) => (
-              <div
+              <RevealItem
                 key={t.tier}
-                className="flex flex-col gap-4 rounded-2xl border border-black/10 bg-white p-6 sm:flex-row sm:items-start sm:gap-8 sm:p-8"
+                className="card-lift flex flex-col gap-4 rounded-2xl border border-black/10 bg-white p-6 sm:flex-row sm:items-start sm:gap-8 sm:p-8"
               >
                 <div className="shrink-0">
                   <span className="font-display text-3xl font-bold text-brand-orange/40">
@@ -74,23 +83,24 @@ export default function ServicesPage() {
                     {t.href && (
                       <Link
                         href={t.href}
-                        className="text-sm font-semibold text-brand-orange hover:text-brand-orange-dark"
+                        className="text-sm font-semibold text-brand-orange transition-colors hover:text-brand-orange-dark"
                       >
                         Learn more about the Assessment →
                       </Link>
                     )}
                   </div>
                 </div>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </Container>
       </section>
 
       {/* Transformation Advisory focus areas */}
-      <section className="bg-white py-20">
-        <Container>
-          <div className="mx-auto max-w-2xl text-center">
+      <section className="relative overflow-hidden bg-white py-20">
+        <GradientField variant="light" />
+        <Container className="relative">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="font-display text-3xl font-bold text-brand-green sm:text-4xl">
               Inside Transformation Advisory
             </h2>
@@ -98,13 +108,13 @@ export default function ServicesPage() {
               Once the Assessment identifies your priorities, work is scoped
               from the areas below — sequenced, not sold as a package deal.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+          <RevealGroup className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
             {transformationFocusAreas.map((area) => (
-              <div
+              <RevealItem
                 key={area.title}
-                className="rounded-2xl border border-black/10 p-6 sm:p-8"
+                className="card-lift rounded-2xl border border-black/10 bg-white p-6 sm:p-8"
               >
                 <div className="flex items-start gap-4">
                   <span className="text-3xl">{area.icon}</span>
@@ -125,16 +135,16 @@ export default function ServicesPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </Container>
       </section>
 
       {/* Independence statement */}
       <section className="py-20">
         <Container>
-          <div className="mx-auto max-w-2xl rounded-2xl bg-brand-green px-8 py-10 text-center">
+          <Reveal className="mx-auto max-w-2xl rounded-2xl bg-brand-green px-8 py-10 text-center">
             <p className="font-display text-lg font-semibold text-white">
               We work for you — no one else.
             </p>
@@ -149,7 +159,7 @@ export default function ServicesPage() {
             >
               Book a Free Discovery Call →
             </Button>
-          </div>
+          </Reveal>
         </Container>
       </section>
     </>

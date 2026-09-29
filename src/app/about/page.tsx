@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Container } from "@/components/Container";
+import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
+import { GradientField } from "@/components/GradientField";
 import {
   team,
   teamExpertise,
@@ -31,20 +33,25 @@ const badges = [
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-brand-green py-16 sm:py-20">
-        <Container className="text-center">
-          <h1 className="font-display text-4xl font-bold text-white sm:text-5xl">
-            Meet The Org Doctor
-          </h1>
-          <p className="mx-auto mt-4 max-w-xl text-lg font-medium italic text-brand-orange">
-            Your Prescription for Organizational Success
-          </p>
+      <section className="relative overflow-hidden bg-brand-green py-16 sm:py-20">
+        <GradientField variant="green" />
+        <Container className="relative text-center">
+          <Reveal>
+            <h1 className="font-display text-4xl font-bold text-white sm:text-5xl">
+              Meet The Org Doctor
+            </h1>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mx-auto mt-4 max-w-xl text-lg font-medium italic text-brand-orange">
+              Your Prescription for Organizational Success
+            </p>
+          </Reveal>
         </Container>
       </section>
 
       <section className="py-16 sm:py-20">
         <Container>
-          <div className="mx-auto max-w-3xl space-y-5 text-base leading-relaxed text-brand-gray">
+          <Reveal className="mx-auto max-w-3xl space-y-5 text-base leading-relaxed text-brand-gray">
             <p className="font-display text-xl font-semibold text-brand-green">
               {positioning.statement}
             </p>
@@ -63,65 +70,73 @@ export default function AboutPage() {
               whether navigating growth, transformation, or daily operations
               — deserves a clear, strategic path forward.
             </p>
-          </div>
+          </Reveal>
 
           {/* Why we're credible here */}
           <div className="mx-auto mt-14 max-w-3xl">
-            <h2 className="text-center font-display text-2xl font-bold text-brand-green">
-              Why We&apos;re Credible Here
-            </h2>
-            <ul className="mt-8 space-y-4">
+            <Reveal>
+              <h2 className="text-center font-display text-2xl font-bold text-brand-green">
+                Why We&apos;re Credible Here
+              </h2>
+            </Reveal>
+            <RevealGroup className="mt-8 space-y-4" stagger={0.1}>
               {credibilityPoints.map((point) => (
-                <li
+                <RevealItem
                   key={point}
-                  className="flex gap-3 rounded-xl border border-black/10 bg-white p-5"
+                  className="card-lift flex gap-3 rounded-xl border border-black/10 bg-white p-5"
                 >
                   <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-brand-orange" />
                   <span className="text-sm leading-relaxed text-brand-gray">
                     {point}
                   </span>
-                </li>
+                </RevealItem>
               ))}
-            </ul>
+            </RevealGroup>
           </div>
 
           {/* Independence statement */}
-          <div className="mx-auto mt-10 max-w-3xl rounded-2xl bg-brand-green px-8 py-8 text-center">
+          <Reveal className="mx-auto mt-10 max-w-3xl rounded-2xl bg-brand-green px-8 py-8 text-center">
             <p className="font-display text-base font-semibold text-white">
               We work for you — no one else.
             </p>
             <p className="mt-3 text-sm leading-relaxed text-white/80">
               {independenceStatement}
             </p>
-          </div>
+          </Reveal>
 
           {/* Credential badges */}
-          <div className="mx-auto mt-14 flex max-w-3xl flex-wrap items-center justify-center gap-8">
+          <RevealGroup
+            className="mx-auto mt-14 flex max-w-3xl flex-wrap items-center justify-center gap-8"
+            stagger={0.08}
+          >
             {badges.map((badge) => (
-              <Image
-                key={badge.src}
-                src={badge.src}
-                alt={badge.alt}
-                width={96}
-                height={96}
-                className="h-20 w-20 object-contain sm:h-24 sm:w-24"
-              />
+              <RevealItem key={badge.src}>
+                <Image
+                  src={badge.src}
+                  alt={badge.alt}
+                  width={96}
+                  height={96}
+                  className="h-20 w-20 object-contain transition-transform duration-300 hover:scale-110 sm:h-24 sm:w-24"
+                />
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </Container>
       </section>
 
       {/* Team bios */}
       <section className="bg-white py-16 sm:py-20">
         <Container>
-          <h2 className="text-center font-display text-3xl font-bold text-brand-green sm:text-4xl">
-            Our Team
-          </h2>
-          <div className="mt-12 space-y-10">
+          <Reveal>
+            <h2 className="text-center font-display text-3xl font-bold text-brand-green sm:text-4xl">
+              Our Team
+            </h2>
+          </Reveal>
+          <RevealGroup className="mt-12 space-y-10" stagger={0.1}>
             {team.map((member) => (
-              <div
+              <RevealItem
                 key={member.name}
-                className="rounded-2xl border border-black/10 p-6 sm:p-8"
+                className="card-lift rounded-2xl border border-black/10 p-6 sm:p-8"
               >
                 <h3 className="font-display text-xl font-bold text-brand-green">
                   {member.name}
@@ -138,16 +153,17 @@ export default function AboutPage() {
                 <div className="mt-4 space-y-3 text-sm leading-relaxed text-brand-gray whitespace-pre-line">
                   {member.bio}
                 </div>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </Container>
       </section>
 
       {/* Broader team expertise */}
-      <section className="py-16 sm:py-20">
-        <Container>
-          <div className="mx-auto max-w-2xl text-center">
+      <section className="relative overflow-hidden py-16 sm:py-20">
+        <GradientField variant="light" />
+        <Container className="relative">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="font-display text-3xl font-bold text-brand-green sm:text-4xl">
               Backed by a Team of Experts
             </h2>
@@ -156,13 +172,13 @@ export default function AboutPage() {
               development consultants across public and private sector
               backgrounds, bringing additional depth to every engagement.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <RevealGroup className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2" stagger={0.1}>
             {teamExpertise.map((item) => (
-              <div
+              <RevealItem
                 key={item.area}
-                className="rounded-2xl border border-black/10 bg-white p-6"
+                className="card-lift rounded-2xl border border-black/10 bg-white p-6"
               >
                 <h3 className="font-display text-base font-bold text-brand-green">
                   {item.area}
@@ -170,9 +186,9 @@ export default function AboutPage() {
                 <p className="mt-2 text-sm leading-relaxed text-brand-gray">
                   {item.detail}
                 </p>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </Container>
       </section>
     </>
