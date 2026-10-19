@@ -276,7 +276,47 @@ export const faqs = [
   },
 ];
 
-export const insightPosts = [
+type InsightSection = {
+  heading?: string;
+  paragraphs?: string[];
+  bullets?: string[];
+};
+
+type InsightVisual =
+  | { type: "statGrid"; afterSection: number; title?: string; stats: { value: string; label: string }[] }
+  | {
+      type: "statBars";
+      afterSection: number;
+      title?: string;
+      stats: { label: string; display: string; value: number; max?: number }[];
+    }
+  | {
+      type: "pillarGrid";
+      afterSection: number;
+      title?: string;
+      pillars: { icon: string; title: string; detail: string }[];
+    }
+  | {
+      type: "stepFlow";
+      afterSection: number;
+      title?: string;
+      steps: { number: string; title: string; detail: string }[];
+    };
+
+export type { InsightVisual };
+
+type InsightPost = {
+  slug: string;
+  title: string;
+  category: string;
+  date?: string;
+  excerpt: string;
+  source?: { label: string; url: string };
+  sections: InsightSection[];
+  visuals?: InsightVisual[];
+};
+
+export const insightPosts: InsightPost[] = [
   {
     slug: "build-buy-borrow-talent-strategy",
     title: "Build, Buy, Borrow (and Bot): Choosing a Talent Strategy on Purpose",
@@ -322,6 +362,30 @@ export const insightPosts = [
         ],
       },
     ],
+    visuals: [
+      {
+        type: "pillarGrid" as const,
+        afterSection: 1,
+        title: "Four ways to close a talent gap",
+        pillars: [
+          { icon: "🌱", title: "Build", detail: "Develop current employees. Slow, but durable — if people stay." },
+          { icon: "🛒", title: "Buy", detail: "Recruit externally. Fast and fresh, at a higher cost and a longer ramp-up." },
+          { icon: "🤝", title: "Borrow", detail: "Freelancers and consultants. On-demand skill, limited long-term investment." },
+          { icon: "🤖", title: "Bot", detail: "Automation and AI. The newest option — worth checking before you spend on the rest." },
+        ],
+      },
+      {
+        type: "statGrid" as const,
+        afterSection: 2,
+        title: "The CCMWA Build strategy, by the numbers",
+        stats: [
+          { value: "~33%", label: "of the workforce retirement-eligible when the program began" },
+          { value: "90%+", label: "of open leadership roles filled internally since 2019" },
+          { value: "18%", label: "lower cost per internal promotion vs. an external hire" },
+          { value: "2 yrs", label: "internal hires outperform external peers" },
+        ],
+      },
+    ],
   },
   {
     slug: "sow-water-reap-career-conversations",
@@ -361,6 +425,28 @@ export const insightPosts = [
         paragraphs: [
           "Prepare (weeks 1–4): identify target roles and competency gaps, recruit mentors with clear expectations, choose a cadence and the minimal tools to start. Pilot (weeks 5–10): launch with a small cohort of 4–8, one applied project per participant, a midpoint check-in to adjust. Scale (weeks 11+): expand gradually year over year, standardize mentor training, and integrate the process into succession planning.",
           "One move this week: pick one role. Name one mentor. Start next week.",
+        ],
+      },
+    ],
+    visuals: [
+      {
+        type: "stepFlow" as const,
+        afterSection: 0,
+        title: "The Career Conversations framework",
+        steps: [
+          { number: "01", title: "Sow", detail: "Identify pathways and align them to operational outcomes." },
+          { number: "02", title: "Water", detail: "Structured sessions, mentoring, and real leadership practice." },
+          { number: "03", title: "Reap", detail: "Measure readiness, not perfection, and move people forward." },
+        ],
+      },
+      {
+        type: "stepFlow" as const,
+        afterSection: 4,
+        title: "How to start, in 90 days",
+        steps: [
+          { number: "Wks 1–4", title: "Prepare", detail: "Name target roles, recruit mentors, pick a cadence." },
+          { number: "Wks 5–10", title: "Pilot", detail: "Launch a cohort of 4–8 with one applied project each." },
+          { number: "Wks 11+", title: "Scale", detail: "Expand year over year and fold it into succession planning." },
         ],
       },
     ],
@@ -424,6 +510,27 @@ export const insightPosts = [
         ],
       },
     ],
+    visuals: [
+      {
+        type: "statGrid" as const,
+        afterSection: 1,
+        title: "Imposter syndrome, by the numbers",
+        stats: [
+          { value: "75%", label: "of women executives report experiencing it (KPMG)" },
+          { value: "33%", label: "of American workers regularly doubt their abilities (2022)" },
+          { value: "70%+", label: "of people experience it at some point in their career" },
+        ],
+      },
+      {
+        type: "statBars" as const,
+        afterSection: 2,
+        title: "The confidence gap, in one stat",
+        stats: [
+          { label: "Men apply once qualifications feel \"close enough\"", display: "~60%", value: 60 },
+          { label: "Women often wait until they meet nearly every qualification", display: "~100%", value: 100 },
+        ],
+      },
+    ],
   },
   {
     slug: "everyday-risk-less-scary",
@@ -469,6 +576,19 @@ export const insightPosts = [
         ],
       },
     ],
+    visuals: [
+      {
+        type: "pillarGrid" as const,
+        afterSection: 3,
+        title: "The four footings",
+        pillars: [
+          { icon: "🗣️", title: "Voice", detail: "Make it safe to report injuries, near misses, and unsafe conditions — and close the loop every time." },
+          { icon: "🔁", title: "Habits", detail: "Small and daily beats big and occasional: tailgate talks, 24-hour fixes, walk-arounds." },
+          { icon: "🎭", title: "Rehearsal", detail: "A 45-minute tabletop exercise so the first time isn't the real thing." },
+          { icon: "🤝", title: "Ownership", detail: "Supervisors, committee, champions, leadership, HR, and every employee — not one person." },
+        ],
+      },
+    ],
   },
   {
     slug: "ethics-policy-public-sector-hr-pshra",
@@ -492,6 +612,19 @@ export const insightPosts = [
         heading: "Conflict resolution is the other half",
         paragraphs: [
           "I also teach a Conflict Resolution course for PSHRA, which pairs naturally with the ethics work — policy tells you what's supposed to happen; conflict resolution is what you actually need when two people, two departments, or an employee and a policy are at odds in real time. Between the two, the goal is the same: give public-sector HR professionals practical tools for the situations their private-sector counterparts rarely have to navigate in public.",
+        ],
+      },
+    ],
+    visuals: [
+      {
+        type: "pillarGrid" as const,
+        afterSection: 0,
+        title: "What makes public-sector HR different",
+        pillars: [
+          { icon: "📋", title: "Open records", detail: "An ordinary HR file or email can become a public document on request." },
+          { icon: "🏛️", title: "Elected oversight", detail: "Policy decisions answer to a board or council, not just a chain of command." },
+          { icon: "💰", title: "Taxpayer scrutiny", detail: "Every decision is funded by — and answerable to — the public it serves." },
+          { icon: "🤝", title: "Public trust", detail: "Fairness and consistency aren't just good practice; they're the job." },
         ],
       },
     ],

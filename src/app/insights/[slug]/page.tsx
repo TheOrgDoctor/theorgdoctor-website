@@ -1,11 +1,28 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { GradientField } from "@/components/GradientField";
 import { Button } from "@/components/Button";
-import { insightPosts, site } from "@/lib/site-data";
+import { insightPosts, site, type InsightVisual } from "@/lib/site-data";
+import { StatGrid, StatBars, PillarGrid, StepFlow } from "@/components/charts";
+
+function Visual({ visual }: { visual: InsightVisual }) {
+  switch (visual.type) {
+    case "statGrid":
+      return <StatGrid title={visual.title} stats={visual.stats} />;
+    case "statBars":
+      return <StatBars title={visual.title} stats={visual.stats} />;
+    case "pillarGrid":
+      return <PillarGrid title={visual.title} pillars={visual.pillars} />;
+    case "stepFlow":
+      return <StepFlow title={visual.title} steps={visual.steps} />;
+    default:
+      return null;
+  }
+}
 
 export function generateStaticParams() {
   return insightPosts.map((post) => ({ slug: post.slug }));
@@ -72,35 +89,45 @@ export default async function InsightArticlePage({
       <section className="py-16 sm:py-20">
         <Container>
           <RevealGroup className="mx-auto max-w-2xl space-y-10" stagger={0.08}>
-            {post.sections.map((block, i) => (
-              <RevealItem key={i}>
-                {block.heading && (
-                  <h2 className="font-display text-xl font-bold text-brand-green">
-                    {block.heading}
-                  </h2>
-                )}
-                {block.paragraphs?.map((p, j) => (
-                  <p
-                    key={j}
-                    className={`text-base leading-relaxed text-brand-gray ${
-                      block.heading || j > 0 ? "mt-4" : ""
-                    }`}
-                  >
-                    {p}
-                  </p>
-                ))}
-                {block.bullets && (
-                  <ul className="mt-4 space-y-3">
-                    {block.bullets.map((b, k) => (
-                      <li key={k} className="flex gap-3 text-sm leading-relaxed text-brand-gray">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-orange" />
-                        <span>{b}</span>
-                      </li>
+            {post.sections.map((block, i) => {
+              const visualsHere = post.visuals?.filter((v) => v.afterSection === i);
+              return (
+                <Fragment key={i}>
+                  <RevealItem>
+                    {block.heading && (
+                      <h2 className="font-display text-xl font-bold text-brand-green">
+                        {block.heading}
+                      </h2>
+                    )}
+                    {block.paragraphs?.map((p, j) => (
+                      <p
+                        key={j}
+                        className={`text-base leading-relaxed text-brand-gray ${
+                          block.heading || j > 0 ? "mt-4" : ""
+                        }`}
+                      >
+                        {p}
+                      </p>
                     ))}
-                  </ul>
-                )}
-              </RevealItem>
-            ))}
+                    {block.bullets && (
+                      <ul className="mt-4 space-y-3">
+                        {block.bullets.map((b, k) => (
+                          <li key={k} className="flex gap-3 text-sm leading-relaxed text-brand-gray">
+                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-orange" />
+                            <span>{b}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </RevealItem>
+                  {visualsHere?.map((visual, vi) => (
+                    <RevealItem key={`visual-${i}-${vi}`}>
+                      <Visual visual={visual} />
+                    </RevealItem>
+                  ))}
+                </Fragment>
+              );
+            })}
 
             {post.source && (
               <RevealItem className="rounded-2xl border border-black/10 bg-brand-green/[0.03] p-6">
