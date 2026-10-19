@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/Container";
 import { insightPosts } from "@/lib/site-data";
 
@@ -26,9 +27,10 @@ export default function InsightsPage() {
 
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {insightPosts.map((post) => (
-            <div
-              key={post.title}
-              className="flex flex-col rounded-2xl border border-black/10 bg-white p-6"
+            <Link
+              key={post.slug}
+              href={`/insights/${post.slug}`}
+              className="card-lift flex flex-col rounded-2xl border border-black/10 bg-white p-6"
             >
               <span className="inline-block w-fit rounded-full bg-brand-green/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-green">
                 {post.category}
@@ -39,10 +41,15 @@ export default function InsightsPage() {
               <p className="mt-2 text-sm leading-relaxed text-brand-gray">
                 {post.excerpt}
               </p>
+              {post.date && (
+                <span className="mt-3 text-xs font-semibold uppercase tracking-wide text-brand-gray/60">
+                  {post.date}
+                </span>
+              )}
               <span className="mt-4 text-sm font-semibold text-brand-orange">
-                Coming soon
+                Read the article →
               </span>
-            </div>
+            </Link>
           ))}
         </div>
       </Container>

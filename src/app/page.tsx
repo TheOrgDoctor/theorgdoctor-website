@@ -6,7 +6,7 @@ import { Accordion } from "@/components/Accordion";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { Counter } from "@/components/Counter";
 import { GradientField } from "@/components/GradientField";
-import { benefits, serviceTiers, positioning, site } from "@/lib/site-data";
+import { benefits, serviceTiers, positioning, site, awards } from "@/lib/site-data";
 
 export default function Home() {
   return (
@@ -61,7 +61,7 @@ export default function Home() {
 
       {/* Trust bar */}
       <section className="border-b border-black/5 bg-white">
-        <RevealGroup className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-8 px-6 py-10 text-center sm:grid-cols-3 sm:px-8">
+        <RevealGroup className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-8 px-6 py-10 text-center sm:grid-cols-2 sm:px-8 lg:grid-cols-4">
           <RevealItem>
             <p className="font-display text-3xl font-bold text-brand-orange">
               <Counter value={20} suffix="+" />
@@ -84,6 +84,14 @@ export default function Home() {
             </p>
             <p className="mt-1 text-sm text-brand-gray">
               Credentialed at the highest levels of the profession
+            </p>
+          </RevealItem>
+          <RevealItem>
+            <p className="font-display text-xl font-bold leading-tight text-brand-orange sm:text-2xl">
+              {awards[0].year} {awards[0].title}
+            </p>
+            <p className="mt-1 text-sm text-brand-gray">
+              SHRM-Atlanta HR Excellence Awards, with Kaiser Permanente
             </p>
           </RevealItem>
         </RevealGroup>

@@ -8,14 +8,17 @@ import {
   teamExpertise,
   positioning,
   independenceStatement,
+  awards,
 } from "@/lib/site-data";
 
 const credibilityPoints = [
+  "Named 2026 HR Executive of the Year (Small and Mid-Sized Organization) at the SHRM-Atlanta HR Excellence Awards, presented with Kaiser Permanente.",
+  "Featured nationally by SHRM on the Build, Buy, Borrow talent strategy framework, following a session presented at SHRM25, SHRM's Annual Conference & Expo.",
   "Public-sector and utility CHRO-level experience — operational credibility built from having run HR inside an organization like the ones we advise, not just around them.",
   "Doctoral research in organizational and talent strategy, with a dissertation focused on critical infrastructure and utility organizations.",
   "Hands-on experience leading organizational assessments, business process improvement, and structure redesign — plus RFP development and proposal evaluation, so we know what a strong engagement looks like from both sides of the table.",
   "A standing platform at AWWA and SHRM national conferences, keeping our thinking current with what utility and public-sector leaders are actually facing.",
-  "A background in teaching HR, employment law, and management at the college level, which shapes how we transfer capability to your team instead of creating dependency on ours.",
+  "Developer and instructor for PSHRA's Ethics and Policy in Public Sector HR course, and a PSHRA instructor for Conflict Resolution — in addition to a background teaching HR, employment law, and management at the college level.",
 ];
 
 export const metadata: Metadata = {
@@ -72,6 +75,30 @@ export default function AboutPage() {
               — deserves a clear, strategic path forward.
             </p>
           </Reveal>
+
+          {/* Awards */}
+          <RevealGroup className="mx-auto mt-10 max-w-3xl space-y-3" stagger={0.1}>
+            {awards.map((award) => (
+              <RevealItem
+                key={award.title}
+                className="flex flex-col items-center gap-1 rounded-2xl border border-brand-orange/20 bg-brand-orange/5 px-8 py-6 text-center sm:flex-row sm:justify-between sm:text-left"
+              >
+                <div>
+                  <p className="font-display text-base font-bold text-brand-green">
+                    {award.title}
+                    <span className="font-sans text-sm font-medium text-brand-gray">
+                      {" "}
+                      · {award.category}
+                    </span>
+                  </p>
+                  <p className="mt-1 text-sm text-brand-gray">{award.issuer}</p>
+                </div>
+                <span className="mt-2 shrink-0 rounded-full bg-brand-green px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white sm:mt-0">
+                  {award.year}
+                </span>
+              </RevealItem>
+            ))}
+          </RevealGroup>
 
           {/* Why we're credible here */}
           <div className="mx-auto mt-14 max-w-3xl">
