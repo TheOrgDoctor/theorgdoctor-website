@@ -40,6 +40,7 @@ export const independenceStatement =
 export const serviceTiers = [
   {
     tier: "01",
+    icon: "🎤",
     name: "Speaking & Workshops",
     role: "Awareness & credibility",
     description:
@@ -48,6 +49,7 @@ export const serviceTiers = [
   },
   {
     tier: "02",
+    icon: "🩺",
     name: "The Organizational Health Assessment",
     role: "Flagship diagnostic",
     description:
@@ -57,6 +59,7 @@ export const serviceTiers = [
   },
   {
     tier: "03",
+    icon: "⚙️",
     name: "Transformation Advisory",
     role: "Where the work happens",
     description:
@@ -65,6 +68,7 @@ export const serviceTiers = [
   },
   {
     tier: "04",
+    icon: "🤝",
     name: "Retained Advisory",
     role: "Ongoing counsel",
     description:
@@ -148,26 +152,31 @@ export const transformationFocusAreas = [
 export const diagnosticMethod = [
   {
     step: "Assess",
+    icon: "🔍",
     description:
       "We review your HR operating model, workforce data, process maturity, and technology fit against your organization's actual risk profile — retirements, succession gaps, licensure pipelines, and compliance exposure.",
   },
   {
     step: "Diagnose",
+    icon: "🩺",
     description:
       "Findings are synthesized into a clear picture of what's working, what's at risk, and what's costing you the most in time, money, or exposure — no jargon, no filler.",
   },
   {
     step: "Prescribe",
+    icon: "📋",
     description:
       "You receive a prioritized, board-ready roadmap: what to fix first, what can wait, and what to stop doing entirely — with a business case built for the people who control the budget.",
   },
   {
     step: "Treat",
+    icon: "🛠️",
     description:
       "If you choose to move into Transformation Advisory, the roadmap becomes the scope — phased, fixed-fee, and built around your team's actual capacity to absorb change.",
   },
   {
     step: "Build Self-Sufficiency",
+    icon: "🌱",
     description:
       "Every engagement is built to transfer capability to your team, not create dependency on ours. The goal is an organization that doesn't need us back next year for the same problem.",
   },
@@ -209,6 +218,7 @@ export const team = [
     name: "Dr. Patrick Henley",
     credentials: "DBA, SPHR, SHRM-SCP",
     title: "Founder & CEO",
+    photo: "/images/patrick-henley.jpg",
     bio: "Dr. Patrick Henley brings over two decades of strategic human resources leadership, organizational development, and risk management expertise to the firm. With a deep passion for helping organizations align people with purpose, Patrick is known for blending humor and heart with data-driven decision-making — earning him the nickname \"Chief HR Nerd.\"\n\nPatrick has served as Chief Human Resources Officer at a large regional utility, where he led award-winning programs in leadership development, talent strategy, and workforce planning. He has also been recognized as a finalist for multiple HR Excellence Awards and nominated for CHRO of the Year. As an adjunct professor of business and HR at the college level for over a decade, he brings a unique educator's lens to his consulting work.\n\nHe holds a Doctorate in Business Administration, an MBA, and a Bachelor's degree in Psychology, and is certified at the highest levels of the profession with both SPHR and SHRM-SCP credentials.",
   },
 ];

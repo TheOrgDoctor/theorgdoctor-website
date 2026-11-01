@@ -116,9 +116,14 @@ export default function Home() {
                 key={t.tier}
                 className="card-lift rounded-2xl border border-black/10 bg-white p-6"
               >
-                <span className="font-display text-2xl font-bold text-brand-orange/40">
-                  {t.tier}
-                </span>
+                <div className="flex items-center gap-3">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-green/[0.06] text-xl">
+                    {t.icon}
+                  </span>
+                  <span className="font-display text-2xl font-bold text-brand-orange/40">
+                    {t.tier}
+                  </span>
+                </div>
                 <h3 className="mt-2 font-display text-base font-bold text-brand-green">
                   {t.name}
                 </h3>

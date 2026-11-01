@@ -85,7 +85,10 @@ export default function DiagnosticPage() {
                   {i + 1}
                 </div>
                 <div>
-                  <h3 className="font-display text-lg font-bold text-brand-green">
+                  <h3 className="flex items-center gap-2 font-display text-lg font-bold text-brand-green">
+                    <span aria-hidden className="text-xl">
+                      {step.icon}
+                    </span>
                     {step.step}
                   </h3>
                   <p className="mt-1 text-sm leading-relaxed text-brand-gray">

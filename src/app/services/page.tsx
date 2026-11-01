@@ -61,7 +61,10 @@ export default function ServicesPage() {
                 key={t.tier}
                 className="card-lift flex flex-col gap-4 rounded-2xl border border-black/10 bg-white p-6 sm:flex-row sm:items-start sm:gap-8 sm:p-8"
               >
-                <div className="shrink-0">
+                <div className="flex shrink-0 items-center gap-4 sm:flex-col sm:items-start sm:gap-2">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-green/[0.06] text-2xl">
+                    {t.icon}
+                  </span>
                   <span className="font-display text-3xl font-bold text-brand-orange/40">
                     {t.tier}
                   </span>

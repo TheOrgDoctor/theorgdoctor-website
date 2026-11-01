@@ -28,10 +28,30 @@ export const metadata: Metadata = {
 };
 
 const badges = [
-  { src: "/images/badge-shrm-scp.png", alt: "SHRM Senior Certified Professional (SHRM-SCP)" },
-  { src: "/images/badge-sphr.png", alt: "Senior Professional in Human Resources (SPHR)" },
-  { src: "/images/badge-shrm-wi.png", alt: "SHRM Workplace Investigations Specialty" },
-  { src: "/images/badge-prsa.png", alt: "PRSA Certificate Program" },
+  {
+    src: "/images/badge-shrm-scp.png",
+    alt: "SHRM Senior Certified Professional (SHRM-SCP)",
+    label: "SHRM-SCP",
+    detail: "SHRM Senior Certified Professional",
+  },
+  {
+    src: "/images/badge-sphr.png",
+    alt: "Senior Professional in Human Resources (SPHR)",
+    label: "SPHR",
+    detail: "Senior Professional in Human Resources",
+  },
+  {
+    src: "/images/badge-shrm-wi.png",
+    alt: "SHRM Workplace Investigations Specialty",
+    label: "SHRM-WI",
+    detail: "Workplace Investigations Specialty",
+  },
+  {
+    src: "/images/badge-prsa.png",
+    alt: "PRSA Certificate Program",
+    label: "PRSA",
+    detail: "Certificate Program",
+  },
 ];
 
 export default function AboutPage() {
@@ -133,22 +153,40 @@ export default function AboutPage() {
           </Reveal>
 
           {/* Credential badges */}
-          <RevealGroup
-            className="mx-auto mt-14 flex max-w-3xl flex-wrap items-center justify-center gap-8"
-            stagger={0.08}
-          >
-            {badges.map((badge) => (
-              <RevealItem key={badge.src}>
-                <Image
-                  src={badge.src}
-                  alt={badge.alt}
-                  width={96}
-                  height={96}
-                  className="h-20 w-20 object-contain transition-transform duration-300 hover:scale-110 sm:h-24 sm:w-24"
-                />
-              </RevealItem>
-            ))}
-          </RevealGroup>
+          <div className="mx-auto mt-16 max-w-3xl">
+            <Reveal>
+              <h2 className="text-center font-display text-2xl font-bold text-brand-green">
+                Credentialed at the Highest Levels of the Profession
+              </h2>
+            </Reveal>
+            <RevealGroup
+              className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-4"
+              stagger={0.08}
+            >
+              {badges.map((badge) => (
+                <RevealItem
+                  key={badge.src}
+                  className="card-lift flex flex-col items-center gap-3 rounded-2xl border border-black/10 bg-white p-5 text-center"
+                >
+                  <Image
+                    src={badge.src}
+                    alt={badge.alt}
+                    width={200}
+                    height={200}
+                    className="h-28 w-28 object-contain transition-transform duration-300 hover:scale-110 sm:h-32 sm:w-32"
+                  />
+                  <div>
+                    <p className="font-display text-sm font-bold text-brand-green">
+                      {badge.label}
+                    </p>
+                    <p className="mt-0.5 text-xs leading-snug text-brand-gray">
+                      {badge.detail}
+                    </p>
+                  </div>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </div>
         </Container>
       </section>
 
@@ -164,22 +202,35 @@ export default function AboutPage() {
             {team.map((member) => (
               <RevealItem
                 key={member.name}
-                className="card-lift rounded-2xl border border-black/10 p-6 sm:p-8"
+                className="card-lift flex flex-col gap-6 rounded-2xl border border-black/10 p-6 sm:flex-row sm:p-8"
               >
-                <h3 className="font-display text-xl font-bold text-brand-green">
-                  {member.name}
-                  {member.credentials && (
-                    <span className="font-sans text-sm font-medium text-brand-orange">
-                      {" "}
-                      · {member.credentials}
-                    </span>
-                  )}
-                </h3>
-                <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-brand-gray/70">
-                  {member.title}
-                </p>
-                <div className="mt-4 space-y-3 text-sm leading-relaxed text-brand-gray whitespace-pre-line">
-                  {member.bio}
+                {member.photo && (
+                  <div className="mx-auto w-40 shrink-0 sm:mx-0">
+                    <Image
+                      src={member.photo}
+                      alt={member.name}
+                      width={320}
+                      height={410}
+                      className="aspect-[4/5] w-full rounded-2xl object-cover shadow-md"
+                    />
+                  </div>
+                )}
+                <div>
+                  <h3 className="font-display text-xl font-bold text-brand-green">
+                    {member.name}
+                    {member.credentials && (
+                      <span className="font-sans text-sm font-medium text-brand-orange">
+                        {" "}
+                        · {member.credentials}
+                      </span>
+                    )}
+                  </h3>
+                  <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-brand-gray/70">
+                    {member.title}
+                  </p>
+                  <div className="mt-4 space-y-3 text-sm leading-relaxed text-brand-gray whitespace-pre-line">
+                    {member.bio}
+                  </div>
                 </div>
               </RevealItem>
             ))}
